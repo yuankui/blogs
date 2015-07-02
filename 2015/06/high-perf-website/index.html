@@ -1,0 +1,673 @@
+<!doctype html>
+<html class="theme-next use-motion ">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
+
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+  <link rel="alternate" href="/atom.xml" title="yuankui的不老阁" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    analytics: {
+      google: ''
+    },
+    sidebar: 'post'
+  };
+</script>
+
+
+
+
+  <title> 构建高性能网站-读书笔记 // yuankui的不老阁 </title>
+</head>
+
+<body>
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">yuankui的不老阁</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<div class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+</div>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              构建高性能网站-读书笔记
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015 06 05
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/06/high-perf-website/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/high-perf-website/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <blockquote>
+<p>花了一天时间把真本书过了一下,长了一些见识,不过这本书还是太啰嗦,讲了很多不太相关的东西,干活密度较少<br>  这里面,把一些我认为不太重要的东西去掉了</p>
+</blockquote>
+<h2 id="mysql">mysql</h2><ul>
+<li><p>mysqlreport - mysql报表</p>
+</li>
+<li><p>mysql组合索引 - 提高组合查询效率</p>
+</li>
+<li><p>最左前缀原则 - 最左前缀：顾名思义，就是最左优先，上例中我们创建了lname_fname_age多列索引,相当于创建了(lname)单列索引，(lname,fname)组合索引以及(lname,fname,age)组合索引。</p>
+</li>
+<li><p>组合索引的副作用 - 当数据量少的时候,索引本身会比数据本身还大</p>
+</li>
+<li><p>使用慢查询分析工具 - my.conf <code>log-slow-queries = /data/slow-logs</code></p>
+<ul>
+<li>统计工具: mysqldumpslow &lt; mysqlsla</li>
+</ul>
+</li>
+<li><p>索引缓存</p>
+</li>
+<li><p><code>show processlist\G</code> - 检查当前查询</p>
+</li>
+<li><p>行锁 - InnoDB</p>
+<ul>
+<li>update密集型 - 行锁并不是救世主</li>
+</ul>
+</li>
+<li><p>查询缓存 - <code>query_cache_xxxx</code></p>
+</li>
+<li>线程池 - 持久化连接 <code>thread_cache_size = 100</code></li>
+</ul>
+<h2 id="负载均衡">负载均衡</h2><ul>
+<li>redirect</li>
+<li><p>DNS负载均衡</p>
+<ul>
+<li>多个A记录</li>
+<li>多个CNAME别名</li>
+<li>缺点 - 故障转移不好做</li>
+</ul>
+<blockquote>
+<p>DDNS: 动态DNS,实现域名指向动态IP</p>
+</blockquote>
+</li>
+<li><p>方向代理复杂均衡 - nginx,HAProxy,lighttpd</p>
+<ul>
+<li>按照权重来分配 - 权重比例可以由独立服务能力来得出</li>
+<li>需要考虑自身性能以及转发开销,保证自己的服务能力不低于真正的后台服务器</li>
+<li>健康检测 - 检测后台服务器的健康状态,如果fail了要踢掉</li>
+</ul>
+</li>
+<li><p>粘滞会话 - 保证一个用户多次请求落到一台机器,这样保持用户服务器内部的session,以及动态内容缓存</p>
+<ul>
+<li>nginx: ip_hash,<a href="http://www.oschina.net/question/12_621" target="_blank" rel="external">cookie hash</a></li>
+<li>URI hash: 可以充分利用一台服务器的某种功能处理能力,提高cache命中率</li>
+</ul>
+</li>
+<li><p>ip负载均衡 - DNAT,NetFilter/iptables,IPVS,LVS</p>
+<ul>
+<li>原理: 在传输层对数据包的ip地址和端口进行修改</li>
+<li>NAT服务器可能存在瓶颈</li>
+<li>DR - Direct Routine(lvs): 直接路由 - 实际服务器的响应数据直接发送给客户端,不经过调度器 - 工作在数据链路层<ul>
+<li>ip别名,arp</li>
+</ul>
+</li>
+<li>IP Tunneling</li>
+</ul>
+</li>
+</ul>
+<h2 id="文件共享">文件共享</h2><ul>
+<li>NFS - sun开发,linux自带<ul>
+<li>nfsstat - 统计</li>
+<li>多台服务器将文件服务器的目录mount到本地</li>
+</ul>
+</li>
+</ul>
+<h2 id="文件分发">文件分发</h2><ul>
+<li>ssh: scp,SFTP<ul>
+<li>多级分发</li>
+</ul>
+</li>
+<li>WebDAV</li>
+<li>rsync<ul>
+<li>rsyncd - 据说比基于ssh的rsync开销小</li>
+<li>缺陷: 当文件过多的时候,会全盘扫描,效率低</li>
+</ul>
+</li>
+<li>Hash Tree: 文件多级目录存储,每个文件的更新触发父目录gmt_update更新,这样就可以通过gmt_update来排除那些没有更新的目录以及文件</li>
+<li><p>通过inotify来实现当文件更新后,回调使其父目录更新时间更新的api</p>
+</li>
+<li><p>反向代理 - 实际上就是网络文件本地缓存</p>
+</li>
+</ul>
+<h2 id="分布式文件系统">分布式文件系统</h2><ul>
+<li><a href="http://soulboy.blog.51cto.com/4007306/1338192" target="_blank" rel="external">MogileFS</a></li>
+</ul>
+<h2 id="数据库扩展">数据库扩展</h2><h3 id="mysql-1">mysql</h3><ul>
+<li>主从复制<ul>
+<li>简单的配置即可实现</li>
+</ul>
+</li>
+<li>读写分离</li>
+<li><strong>数据库反向代理</strong> - mysql proxy<ul>
+<li>实现把写请求定向到主服务器,读请求定向到从服务器</li>
+</ul>
+</li>
+<li>垂直分区 - 不想关的库分开存储</li>
+<li>水平分区 - 分库分表 - sharding - 哈希(取模或者其他)</li>
+<li>分区反向代理 - spock proxy</li>
+</ul>
+<h2 id="分布式计算">分布式计算</h2><ul>
+<li>异步计算<ul>
+<li>分布式消息队列</li>
+</ul>
+</li>
+</ul>
+<h2 id="性能监控">性能监控</h2><ul>
+<li>Nmon</li>
+<li>SNMP</li>
+<li>Nagios</li>
+</ul>
+
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/spring-mvc-add-flashmap-in-interceptor/">spring-mvc给Interceptor添加FlashMap</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/economy-and-nature/">素质需要经济来承载</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </div>
+  </div>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+
+    
+      <div class="comments" id="comments">
+        
+          <div class="ds-thread" data-thread-key="2015/06/high-perf-website/"
+               data-title="构建高性能网站-读书笔记" data-url="http://yuankui.me/2015/06/high-perf-website/">
+          </div>
+        
+      </div>
+    
+  </div>
+
+
+        </div>
+
+        
+      </div>
+
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="yuankui" />
+          <p class="site-author-name">yuankui</p>
+        </div>
+        <p class="site-description motion-element"></p>
+        <div class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </div>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml">
+              <i class="menu-item-icon icon-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+        
+      </div>
+
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql"><span class="nav-number">1.</span> <span class="nav-text">mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#负载均衡"><span class="nav-number">2.</span> <span class="nav-text">负载均衡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件共享"><span class="nav-number">3.</span> <span class="nav-text">文件共享</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件分发"><span class="nav-number">4.</span> <span class="nav-text">文件分发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式文件系统"><span class="nav-number">5.</span> <span class="nav-text">分布式文件系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库扩展"><span class="nav-number">6.</span> <span class="nav-text">数据库扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql-1"><span class="nav-number">6.1.</span> <span class="nav-text">mysql</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式计算"><span class="nav-number">7.</span> <span class="nav-text">分布式计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能监控"><span class="nav-number">8.</span> <span class="nav-text">性能监控</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2015
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">yuankui</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.3" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"yuankui"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+  
+  
+
+</body>
+</html>

@@ -1,0 +1,657 @@
+<!doctype html>
+<html class="theme-next use-motion ">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
+
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+  <link rel="alternate" href="/atom.xml" title="yuankui的不老阁" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    analytics: {
+      google: ''
+    },
+    sidebar: 'post'
+  };
+</script>
+
+
+
+
+  <title> The top Java EE best practices // yuankui的不老阁 </title>
+</head>
+
+<body>
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">yuankui的不老阁</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<div class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+</div>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              The top Java EE best practices
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015 06 05
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/06/javaEE-best-practices/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/javaEE-best-practices/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <ol>
+<li><p>Always use MVC. - Cleanly separate business logic (Java beans and EJB components) from controller logic (servlets/Struts actions) from presentation (JSP, XML/XSLT). Good layering can cover a multitude of sins.</p>
+<blockquote>
+<p>尽量用MVC - 明确的把业务逻辑(model)与控制层(controller)以及展现层 (view)分离开,好的分层能够适应各种需求</p>
+</blockquote>
+</li>
+<li><p>Don’t reinvent the wheel - Use common, proven frameworks like Apache Struts, JavaServer Faces, and Eclipse RCP. Use proven patterns.</p>
+<blockquote>
+<p>不要重复造<strong>轮子</strong> - 多使用常用的,可靠的框架,比如apache Struts, guava. 多使用常用的设计模式</p>
+</blockquote>
+</li>
+<li><p>Apply automated unit tests and test harnesses at every layer. - Don’t just test your GUI. Layered testing makes debugging and maintenance vastly simpler.</p>
+<blockquote>
+<p>尽早开始自动化测试,分层测试 - 不要单单测试gui,分层测试debug和维护起来都很方便</p>
+</blockquote>
+</li>
+</ol>
+<a id="more"></a>
+<ol>
+<li><p>Develop to the specifications, not the application server. - Know the specifications by heart and deviate from them only after careful consideration. Just because you can do something doesn’t mean you should</p>
+<blockquote>
+<p>面向切面编程. - 在适当的时候才利用面向切面编程技术,应用面向切面必须是你经过深思熟虑的,你能做某事,并不代表你就应该做某事.</p>
+</blockquote>
+</li>
+<li><p>Plan for using Java EE security from Day One. - Turn on WebSphere security. Lock down all your EJBs and URLs to at least all authenticated users. Don’t even ask — just do it.</p>
+<blockquote>
+<p>一开始就要考虑使用安全问题 - 把你的EJBs和URL只开放给授权用户</p>
+</blockquote>
+</li>
+<li><p>Build what you know. - Iterative development enbales you to gradually master all the moving pieces of Java EE. Build small, vertical slices through your application rather than doing everything at once</p>
+<blockquote>
+<p>不要过度设计 - 迭代编程会让你掌握javaEE的各个方面的,功能慢慢加,不要一开始就吃个大胖子..</p>
+</blockquote>
+</li>
+<li><p>Always use session facades whenever you use EJB components. - Use local EJBs when architecturally appropriate.</p>
+<blockquote>
+<p>每当使用EJB的时候,都使用<a href="http://www.corej2eepatterns.com/SessionFacade.htm" target="_blank" rel="external">Session Facades模式</a> - 当架构允许的时候最好使用local EJBs.(???)</p>
+</blockquote>
+</li>
+<li><p>Use stateless session beans instead of stateful session beans. - This makes your system more amenable to failover. Use the HttpSession to store user-specific state</p>
+<blockquote>
+<p>多用无状态会话 bean,少用状态会话Bean - 这样你的系统更能从业应对失败重启,利用HttpSession来存储用户相关的状态</p>
+</blockquote>
+</li>
+<li><p>Use container-managed transactions. - Learn how two-phase commit transactions work in Java EE and rely on them rather than developing your own transaction management. The container will almost always be better at transaction optimization</p>
+<blockquote>
+<p>多用容器提供的事务功能 - 学习JavaEE的两阶段提交,而不要自己处理事务. 容器的实物优化往往做得更好.</p>
+</blockquote>
+</li>
+<li><p>Prefer JSPs as your first choice of presentation technology. - Use XML/XSLT only in cases where you have multiple presentation output types that must be supported by a single controller and back-end.</p>
+<blockquote>
+<p>考虑视图展现的时候,尽量用JSP - 只有再你需要支持多种输出格式的时候才使用XML/XSLT</p>
+</blockquote>
+</li>
+<li><p>When using HttpSessions, store only as much state as you need for the current business transaction and no more. - Enable session persistence</p>
+<blockquote>
+<p>当使用HttpSession的时候,不要存那些没关的东西 - 打开session功能</p>
+</blockquote>
+</li>
+<li><p>Take advantage of application server features that do not require your code to be modified. - With features such as WebSphere Application Server caching and the Prepared Statement cache, the performance gains are substantial and the overhead is minimal.</p>
+<blockquote>
+<p>容器能够提供的功能,尽量不要自己编码 - 比如WebSphere的caching,Prepared Statement cache,这些可以让你用较低复杂提高较大性能</p>
+</blockquote>
+</li>
+<li><p>Play nice within existing environments. - Deliver a Java EE EAR and configurable installation scripts, not a black box binary installer.</p>
+<blockquote>
+<p>不要影响现有应用 - 发布新应用的时候,尽量提供可配的安装脚本以及配置文件,而不要提供一个可执行的<strong>二进制</strong>文件..</p>
+</blockquote>
+</li>
+<li><p>Embrace the qualities of service provided by the application server environment. - Design applications to be clusterable using WebSphere Application Server Network Deployment</p>
+<blockquote>
+<p>充分利用容器提供的服务保证 - 如果需要分布式部署的,充分利用<strong>WebSphere Application Server Network Deployment</strong></p>
+</blockquote>
+</li>
+<li><p>Embrace Java EE, don’t fake it. - Commit to building real Java EE applications that truly leverage Java EE function</p>
+<blockquote>
+<p>拥抱Java EE,不要假冒它(??) - 创建一个有着Java EE功能的Jave EE应用</p>
+</blockquote>
+</li>
+<li><p>Plan for version updates. - Change is inevitable. Plan for new releases and fix updates so that your customers can stay current.</p>
+<blockquote>
+<p>为升级更新做计划 - 变化是无法避免的,只有不断开发新feature,fixbug才能留得住用户</p>
+</blockquote>
+</li>
+<li><p>At all points of interest in your code, log your program state using a standard logging framework. - This includes exception handlers. Use a logging framework like JDK 1.4 logging or Log4J</p>
+<blockquote>
+<p>用一个标准的日志库,将你代码的所有关注点用日记记录下来 - 包括异常处理. 使用JDK提供的日志框架或者log4j</p>
+</blockquote>
+</li>
+<li><p>Always clean up after yourself. - If you obtain an object from a pool, always make sure you return it back to the pool.</p>
+<blockquote>
+<p>及时释放资源 - 如果你从一个资源池申请了某种资源,一定要及时释放</p>
+</blockquote>
+</li>
+<li><p>Follow rigorous procedures for development and testing. - This includes adopting and following a software development methodology.</p>
+<blockquote>
+<p>遵循软件过程 - 包括采用某些软件开发过程</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><a href="http://www.ibm.com/developerworks/websphere/techjournal/0701_botzum/0701_botzum.html" target="_blank" rel="external">The top Java EE best practices</a></li>
+</ul>
+
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/big-hero/">看超能陆战队</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/spring-mvc-add-flashmap-in-interceptor/">spring-mvc给Interceptor添加FlashMap</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </div>
+  </div>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+
+    
+      <div class="comments" id="comments">
+        
+          <div class="ds-thread" data-thread-key="2015/06/javaEE-best-practices/"
+               data-title="The top Java EE best practices" data-url="http://yuankui.me/2015/06/javaEE-best-practices/">
+          </div>
+        
+      </div>
+    
+  </div>
+
+
+        </div>
+
+        
+      </div>
+
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="yuankui" />
+          <p class="site-author-name">yuankui</p>
+        </div>
+        <p class="site-description motion-element"></p>
+        <div class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </div>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml">
+              <i class="menu-item-icon icon-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+        
+      </div>
+
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2015
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">yuankui</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.3" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"yuankui"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+  
+  
+
+</body>
+</html>
